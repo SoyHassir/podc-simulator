@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova - Simulador de Decisiones PODC</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #0b3d91, #20b2aa);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .logo {
+            width: 180px;
+            margin-bottom: 10px;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-text {
+            font-size: 2.5rem;
+            margin-left: 10px;
+        }
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #0b3d91;
+            border-bottom: 2px solid #20b2aa;
+            padding-bottom: 10px;
+        }
+        .data-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .data-box {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .data-box h3 {
+            margin-top: 0;
+            color: #0b3d91;
+        }
+        .data-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff7f00;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .team-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .team-member {
+            flex: 1;
+            min-width: 220px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .challenge-box {
+            border-left: 4px solid #ff7f00;
+            padding-left: 15px;
+            margin: 15px 0;
+            background-color: #f9f9f9;
+        }
+        .simulator-info {
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #e9f7f6;
+            border-radius: 5px;
+            border: 1px solid #20b2aa;
+        }
+        .simulator-info h3 {
+            color: #0b3d91;
+            margin-top: 0;
+        }
+        a {
+            color: #0b3d91;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .simulator-button {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 15px 20px;
+            text-align: center;
+            background-color: #0b3d91;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .simulator-button:hover {
+            background-color: #20b2aa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,20 70,35 70,65 50,80 30,65 30,35' fill='%230b3d91' stroke='%230b3d91'/><path d='M35,65 L65,35' stroke='%23ff7f00' stroke-width='4' stroke-linecap='round'/></svg>">
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0b3d91" />
+                            <stop offset="100%" stop-color="#20b2aa" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="150,40 200,65 200,115 150,140 100,115 100,65" 
+                            fill="url(#techGradient)" stroke="#0b3d91" stroke-width="2" />
+                    <path d="M110,115 L190,65" stroke="#ff7f00" stroke-width="6" stroke-linecap="round" />
+                    <polygon points="190,65 180,55 195,55" fill="#ff7f00" />
+                </svg>
+                <div class="logo-text">
+                    <span style="font-weight: normal;">Tech</span><span style="font-weight: bold;">Nova</span>
+                </div>
+            </div>
+            <h2>Tecnología que transforma el mañana</h2>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="simulator-info">
+            <h3>Simulador de Decisiones PODC</h3>
+            <p>Bienvenido al caso de estudio TechNova, donde podrás tomar decisiones estratégicas aplicando los fundamentos de Planeación, Organización, Dirección y Control.</p>
+            <p>Explora la información de la empresa para comprender su contexto antes de iniciar el simulador.</p>
+        </div>
+        
+        <section class="section">
+            <h2>Sobre TechNova</h2>
+            <p>Fundada en 2015, TechNova surgió con la visión de desarrollar soluciones tecnológicas innovadoras que transformaran la manera en que las empresas gestionan sus operaciones. Desde nuestros inicios, nos hemos caracterizado por combinar la excelencia técnica con un profundo entendimiento de las necesidades de nuestros clientes.</p>
+            
+            <div class="data-container">
+                <div class="data-box">
+                    <h3>Empleados</h3>
+                    <div class="data-number">248</div>
+                    <p>Profesionales dedicados</p>
+                </div>
+                <div class="data-box">
+                    <h3>Clientes</h3>
+                    <div class="data-number">350+</div>
+                    <p>Empresas confían en nosotros</p>
+                </div>
+                <div class="data-box">
+                    <h3>Países</h3>
+                    <div class="data-number">12</div>
+                    <p>Presencia internacional</p>
+                </div>
+                <div class="data-box">
+                    <h3>Crecimiento</h3>
+                    <div class="data-number">27%</div>
+                    <p>Anual promedio</p>
+                </div>
+            </div>
+            
+            <h3>Misión</h3>
+            <p>Proporcionar soluciones tecnológicas que potencien la eficiencia y la competitividad de nuestros clientes, mediante la innovación continua y el compromiso con la excelencia.</p>
+            
+            <h3>Visión</h3>
+            <p>Ser reconocidos globalmente como líderes en el desarrollo de tecnologías transformadoras que definen el futuro de la gestión empresarial.</p>
+        </section>
+        
+        <section class="section">
+            <h2>Situación Actual</h2>
+            <p>TechNova se encuentra en un punto de inflexión estratégico. Tras varios años de crecimiento sostenido con nuestros productos principales, enfrentamos nuevos desafíos que requieren tomar decisiones importantes para asegurar nuestro0 éxito en un mercado cada vez más competitivo.</p>
+            
+            <div class="challenge-box">
+                <h3>Desafíos actuales</h3>
+                <ul>
+                    <li><strong>Competencia internacional:</strong> Nuevos actores globales han entrado al mercado con productos similares a precios competitivos.</li>
+                    <li><strong>Cambios tecnológicos acelerados:</strong> La rápida evolución tecnológica requiere de adaptación constante para mantener relevancia.</li>
+                    <li><strong>Problemas de coordinación interna:</strong> El crecimiento ha generado desafíos en la comunicación y coordinación entre los departamentos.</li>
+                    <li><strong>Decisión estratégica:</strong> Debemos decidir si enfocarnos en perfeccionar nuestros productos actuales, diversificar hacia nuevas líneas o intentar una estrategia híbrida.</li>
+                </ul>
+            </div>
+            
+            <p>El comité directivo debe tomar las decisiones en términos de planeación, organización, dirección y control para navegar estos desafíos y asegurar el futuro exitoso de TechNova.</p>
+        </section>
+        
+        <section class="section">
+            <h2>Nuestros Productos</h2>
+            <p>TechNova ha desarrollado una suite de soluciones tecnológicas enfocadas en optimizar procesos empresariales:</p>
+            
+            <div class="data-container">
+                <div class="data-box">
+                    <h3>NovaERP</h3>
+                    <p>Sistema integrado de planeación de recursos empresariales, nuestro producto estrella con más de 200 implementaciones exitosas.</p>
+                </div>
+                <div class="data-box">
+                    <h3>NovaAnalytics</h3>
+                    <p>Plataforma de análisis de datos que permite visualizar métricas clave y facilitar la toma de decisiones estratégicas.</p>
+                </div>
+                <div class="data-box">
+                    <h3>NovaCloud</h3>
+                    <p>Solución de almacenamiento y computación en la nube diseñada específicamente para necesidades empresariales.</p>
+                </div>
+            </div>
+            
+            <p>Estos productos han sido el núcleo de nuestro negocio, pero ahora evaluamos oportunidades para desarrollar nuevas líneas que complementen o expandan nuestra oferta actual.</p>
+        </section>
+        
+        <section class="section">
+            <h2>Equipo Directivo</h2>
+            <p>Nuestro equipo directivo combina experiencia técnica con visión estratégica, y ahora enfrenta importantes decisiones administrativas:</p>
+            
+            <div class="team-section">
+                <div class="team-member">
+                    <img src="./img/team-member-1.webp" alt="Directora General" class="team-photo">
+                    <h3>Ana Martínez</h3>
+                    <p>Directora General</p>
+                </div>
+                <div class="team-member">
+                    <img src="./img/team-member-3.webp" alt="Director Técnico" class="team-photo">
+                    <h3>Carlos Vega</h3>
+                    <p>Director Técnico</p>
+                </div>
+                <div class="team-member">
+                    <img src="./img/team-member-4.webp" alt="Directora Financiera" class="team-photo">
+                    <h3>Laura Torres</h3>
+                    <p>Directora Financiera</p>
+                </div>
+                <div class="team-member">
+                    <img src="./img/team-member-2.webp" alt="Director de Operaciones" class="team-photo">
+                    <h3>Miguel Sánchez</h3>
+                    <p>Director de Operaciones</p>
+                </div>
+            </div>
+            
+            <p>Este equipo liderará el proceso de toma de decisiones para determinar el futuro de TechNova en términos de estrategia, estructura y operaciones.</p>
+        </section>
+        
+        <a href="https://view.genially.com/681b3cb00639509678d38402/interactive-content-simulador-de-decisiones-podc" class="simulator-button">INICIAR SIMULADOR PODC</a>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Copyright © 2025 Hassir Lastre</p>
+            <p>Diseñado y desarrollado por Hassir Lastre Sierra</p>
+            <p><a href="http://www.hassirlastre.com" target="_blank" style="color: white; text-decoration: underline;">www.hassirlastre.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>
